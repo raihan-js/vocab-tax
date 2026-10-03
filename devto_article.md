@@ -31,11 +31,22 @@ Larger vocabularies have lower fertility — fewer tokens per byte. But they als
 
 ## Results
 
-[TBD after grid run]
+Held-out bits-per-byte on TypeScript/JavaScript, 1,000 steps per run.
+
+| Size (non-emb) | 2k | 8k | 16k | 32k |
+|---|---|---|---|---|
+| 10M | 1.391 | **1.168** | 1.219 | 1.321 |
+| 25M | 1.378 | 1.258 | **1.218** | 1.280 |
+| 50M | 1.436 | 1.204 | **1.147** | 1.458 |
+
+(10M rows are means of 2 seeds; seed noise reaches 0.13, so 8k vs 16k at 10M is an honest tie.)
 
 ## Key findings
 
-[TBD after grid run]
+1. **8k–16k wins at every size.** 2k is always bad; 32k collapses at 50M (embeddings eat 25% of params, under-trained in 1,000 steps).
+2. **Vocabulary beats backbone:** 10M+8k (1.10) crushes 50M+2k (1.44) — 5x fewer total params, 24% better bpb.
+3. **Seed noise is large** (up to 0.13) — differences below ~0.1 are ties, reported as such.
+4. **Was the 2,103-token tokenizer a mistake?** Directionally yes — 2k costs ~19% bpb vs 8k at 10M. Caveat: ORCH differs in data and training too, so this is suggestive, not conclusive.
 
 ## Limitations
 
