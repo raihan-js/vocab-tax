@@ -1,0 +1,30 @@
+# vocab-tax grid configuration
+# 3 sizes x 4 vocab sizes = 12 runs + 4 second-seed runs
+
+sizes:
+  - 10M
+  - 25M
+  - 50M
+
+vocab_sizes:
+  - 2000
+  - 8000
+  - 16000
+  - 32000
+
+seeds:
+  - 42
+  - 123  # second seed for 10M row
+
+training:
+  epochs: 1
+  batch_size: 4
+  lr: 0.0003
+  max_steps: 1000
+  seq_len: 1024
+
+data:
+  train_dir: data/dedup
+  eval_dir: data/eval
+
+output_dir: models
