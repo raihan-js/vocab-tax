@@ -2,6 +2,8 @@
 
 ![Vocab Tax results](images/vocab-tax.png)
 
+Write-up: [Was My 2,103-Token Tokenizer a Mistake?](https://dev.to/raihan-js/was-my-2103-token-tokenizer-a-mistake-pf9)
+
 A compute-matched vocabulary-size study for small code models. Train small LLaMA-style decoders from scratch (3 sizes × 4 BPE vocabulary sizes, plus a second seed at the smallest size: 16 runs) on TypeScript/JavaScript and measure, at equal training FLOPs, which vocabulary gives the lowest bits-per-byte.
 
 ## The problem
